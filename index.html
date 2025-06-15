@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Task Manager</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">   
+</head>
+<body>
+    <header>
+        <h1>My Task Manager</h1>
+    </header>
+
+    <main>
+        <form onsubmit="addTask(event)" id="taskForm" >
+            <input type="text" id="taskInput" placeholder="Enter task title" />
+            <input type="submit" value="Add Task"/>
+            <p id="error" class="error-msg"></p>
+        </form>
+
+        <div class="filters">
+            <select name="data-filter" id="data-filter" onchange="getStatusList()">
+                <option value="all">All</option>
+                <option value="completed">Completed</option>
+                <option value="pending">Pending</option>
+            </select>
+        </div>
+        <table id="taskTable" class="display">
+            <thead>
+            <tr><th>Tasks</th></tr>
+            </thead>
+            <tbody id="taskCardContainer">
+                <section id="taskList" class="task-list"></section>
+            </tbody>
+        </table>
+    </main>
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+    <script src="task.js"></script>
+</body>
+</html>
